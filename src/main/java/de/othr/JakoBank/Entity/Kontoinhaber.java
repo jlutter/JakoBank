@@ -1,7 +1,6 @@
 package de.othr.JakoBank.Entity;
 
 import de.othr.JakoBank.Entity.util.GeneratedIdEntity;
-
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
@@ -22,6 +21,32 @@ public class Kontoinhaber extends GeneratedIdEntity {
         this.name = name;
         this.adresse = adresse;
         this.konto = konto;
+    }
+
+    public Kontoinhaber(long telnum, Name name, Adresse adresse) {
+        this.telnum = telnum;
+        this.name = name;
+        this.adresse = adresse;
+    }
+
+    public void setTelnum(long telnum){
+        if(telnum != 0)
+            this.telnum = telnum;
+    }
+
+    public void setName(Name name) {
+        if(name != null)
+            this.name = name;
+    }
+
+    public void setAdresse(Adresse adresse) {
+        if(adresse != null)
+            this.adresse = adresse;
+    }
+
+    public void setKonto(Konto konto) {
+        if(konto != null)
+            this.konto = konto;
     }
 
     public long getTelnum() {

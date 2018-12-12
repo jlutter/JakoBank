@@ -1,7 +1,6 @@
 package de.othr.JakoBank.Entity;
 
 import de.othr.JakoBank.Entity.util.GeneratedIdEntity;
-
 import javax.persistence.Entity;
 
 @Entity

@@ -10,7 +10,7 @@ public class Kontoverlauf {
     public Kontoverlauf() {
     }
 
-    public List<Transaktion> getVerlauf() {
-        return verlauf;
+    public String Verlauf() {
+        return verlauf.toString();
     }
 }

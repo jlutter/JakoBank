@@ -2,7 +2,6 @@ package de.othr.JakoBank.Entity;
 
 import de.othr.JakoBank.Entity.util.GeneratedIdEntity;
 import java.math.BigDecimal;
-
 import javax.persistence.Entity;
 
 @Entity
