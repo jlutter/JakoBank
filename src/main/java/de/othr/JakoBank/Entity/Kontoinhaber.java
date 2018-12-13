@@ -29,6 +29,10 @@ public class Kontoinhaber extends GeneratedIdEntity {
         this.adresse = adresse;
     }
 
+    public void setId(long id) {
+        super.id = id;
+    }
+
     public void setTelnum(long telnum){
         if(telnum != 0)
             this.telnum = telnum;

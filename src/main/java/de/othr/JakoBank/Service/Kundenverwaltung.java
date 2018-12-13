@@ -8,8 +8,10 @@ import de.othr.JakoBank.Interface.KundenverwaltungIF;
 import javax.faces.bean.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
+import java.util.List;
 
 @RequestScoped
 public class Kundenverwaltung implements KundenverwaltungIF {
@@ -120,4 +122,21 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     public void ordnerBestellen() {
 
     }
+
+    @Override
+    public Kontoinhaber getKundebyId(long KundenId) {
+        Kontoinhaber kontoinhaber;
+        
+        kontoinhaber = entityManager.find(Kontoinhaber.class, KundenId);
+        
+        return kontoinhaber;
+    }
+
+    @Override
+    public List<Kontoinhaber> getAllKontoinhaber() {
+        TypedQuery<Kontoinhaber> query = entityManager.createQuery(
+                "SELECT k FROM Kontoinhaber AS k",
+                Kontoinhaber.class
+        );
+        return query.getResultList();    }
 }

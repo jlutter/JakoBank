@@ -6,6 +6,7 @@ import de.othr.JakoBank.Entity.Kontoinhaber;
 import de.othr.JakoBank.Entity.Name;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public interface KundenverwaltungIF {
 
@@ -34,4 +35,8 @@ public interface KundenverwaltungIF {
     public void deleteKontoinhaber(Kontoinhaber kontoinhaber);
 
     public void ordnerBestellen();
+
+    public Kontoinhaber getKundebyId(long KundenId);
+
+    public List<Kontoinhaber> getAllKontoinhaber();
 }

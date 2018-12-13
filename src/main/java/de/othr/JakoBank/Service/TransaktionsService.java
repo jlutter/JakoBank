@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-@WebService
+//@WebService
 @SessionScoped
 public class TransaktionsService implements TransaktionsIF {
 

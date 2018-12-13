@@ -5,12 +5,13 @@ import java.util.List;
 
 @Embeddable
 public class Kontoverlauf {
-    private List<Transaktion> verlauf;
+    //private List<Transaktion> verlauf;
+    private String verlauf;
 
     public Kontoverlauf() {
     }
 
     public String Verlauf() {
-        return verlauf.toString();
+        return verlauf;
     }
 }
