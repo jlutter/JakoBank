@@ -4,9 +4,10 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-    <h1 align="center">JakoBank</h1>
-    <h2 align="center">Willkommen bei JakoBank!</h2>
+<ui:composition template="WEB-INF/templates/basicTemplate.xhtml">
+    <ui:define name="content">
+        <h2 align="center">Willkommen bei JakoBank!</h2>
+    </ui:define>
+</ui:composition>
 
-    Hier gehts zur <a href="./Angestellter">Anmeldung für Angestellte!</a>
-    Hier gehts zur <a href="./Kontoinhaber">Anmeldung für Kontoinhaber!</a>
 </html>

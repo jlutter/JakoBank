@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface KundenverwaltungIF {
 
-    public Kontoinhaber newKontoinhaber(long telnum, Name name, Adresse adresse, Konto konto);
+    public Kontoinhaber newKontoinhaber(long telnum, String vorname, String nachname, String strasse, String ort, long plz, int hausnummer, Konto konto);
 
     public Konto createKonto();
 

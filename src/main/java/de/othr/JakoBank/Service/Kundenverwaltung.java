@@ -23,14 +23,14 @@ public class Kundenverwaltung implements KundenverwaltungIF {
 
     @Override
     @Transactional
-    public Kontoinhaber newKontoinhaber(long telnum, Name name, Adresse adresse, Konto konto) {
+    public Kontoinhaber newKontoinhaber(long telnum, String vorname, String nachname, String strasse, String ort, long plz, int hausnummer, Konto konto) {
         Kontoinhaber kontoinhaber;
 
         if(konto == null)
-            kontoinhaber = new Kontoinhaber(telnum, name, adresse);
+            kontoinhaber = new Kontoinhaber(telnum, vorname, nachname, strasse, ort, plz, hausnummer);
 
         else
-            kontoinhaber = new Kontoinhaber(telnum, name, adresse, konto);
+            kontoinhaber = new Kontoinhaber(telnum, vorname, nachname, strasse, ort, plz, hausnummer, konto);
 
         entityManager.persist(kontoinhaber);
 

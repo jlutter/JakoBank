@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+    <ui:composition template="../WEB-INF/templates/basicTemplate.xhtml">
+        <ui:define name="content">
+            <h1>Kundenverwaltung</h1>
+            <f:view>
+                <h2>Detailansicht</h2>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputText value="Konto-ID:" rendered="#{mitarbeiterMgmtModel.inAenderung}"/>
+                        <h:outputText value="#{mitarbeiterMgmtModel.tempKontoinhaber.id}" rendered="#{mitarbeiterMgmtModel.inAenderung}"/>
+
+                        <h:outputText value="Vorname:"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.vorname}"/>
+
+                        <h:outputText value="Nachname:"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.nachname}"/>
+
+                        <h:outputText value="Stra&szlig;e:"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.strasse}"/>
+
+                        <h:outputText value="Hausnummer:"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.hausnummer}"/>
+
+                        <h:outputText value="PLZ:"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.plz}"/>
+
+                        <h:outputText value="Ort:"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.ort}"/>
+
+                        <h:outputText value="Telefonnummer:"/>
+                        <h:inputText validator="#{mitarbeiterMgmtModel.telnum}"/>
+
+                        <h:commandButton value="Immatrikulieren" action="#{mitarbeiterMgmtModel.neuerKunde}" rendered="#{!mitarbeiterMgmtModel.inAenderung}"/><br/>
+                        <h:commandButton value="&Auml;ndern" action="#{mitarbeiterMgmtModel.aendern()}" rendered="#{mitarbeiterMgmtModel.inAenderung}"/><br/>
+
+                    </h:panelGrid>
+
+                    <h2>Kunden</h2>
+                    <h:dataTable var="kunde" value="#{mitarbeiterMgmtModel.kunden}">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Konto-ID" />
+                            </f:facet>
+                            <h:outputText value="#{kunde.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Name" />
+                            </f:facet>
+                            <h:outputText value="#{kunde.name}"/>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Aktionen" />
+                            </f:facet>
+                            <h:commandButton value="bearbeiten" action="#{mitarbeiterMgmtModel.aenderVorbereiten(kunde)}"/>
+                            <h:commandButton value="exmatrikulieren" action="#{mitarbeiterMgmtModel.loeschen(kunde)}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>
