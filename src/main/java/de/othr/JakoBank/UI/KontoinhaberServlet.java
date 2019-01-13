@@ -4,5 +4,5 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
 @WebServlet(urlPatterns = {"/Kontoinhaber"})
-public class KontoinhaberUI extends HttpServlet {
+public class KontoinhaberServlet extends HttpServlet {
 }

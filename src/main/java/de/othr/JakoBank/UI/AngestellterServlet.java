@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(urlPatterns = {"/Angestellter"})
-public class AngestellterUI extends HttpServlet {
+public class AngestellterServlet extends HttpServlet {
     // Dependencies
 
     @Inject
@@ -65,22 +65,25 @@ public class AngestellterUI extends HttpServlet {
             Adresse adresse = new Adresse();
             Name name = new Name("daf", "dafd");
             kontoinhaber = new Kontoinhaber(
-                    15,
+                    1518685,
                     name,
                     //req.getParameter("kunden_name"),
                     adresse
             );
             kontoinhaber = kundenverwaltung.newKontoinhaber(kontoinhaber.getTelnum(), kontoinhaber.getName(),adresse, null);
         }
-        /*else if("Aendern".equals(req.getParameter("action"))) {
-            Studiengang stdgang = new Studiengang(req.getParameter("studiengang"));
-            student = new Student(
-                    req.getParameter("student_name"),
-                    stdgang
+        else if("Aendern".equals(req.getParameter("action"))) {
+            Adresse adresse = new Adresse();
+            Name name = new Name("daf", "dafd");
+            kontoinhaber = new Kontoinhaber(
+                    15,
+                    name,
+                    //req.getParameter("kunden_name"),
+                    adresse
             );
-            student.setMatrikelNr(Long.parseLong(req.getParameter("matrikelnr")));
-            student = studentService.changeStudentData(student);
-        }*/
+            kontoinhaber.setId(Long.parseLong(req.getParameter("Id")));
+            kontoinhaber = kundenverwaltung.changeKontoinhaber(kontoinhaber);
+        }
         else if("loeschen".equals(req.getParameter("action"))) {
             kontoinhaber = new Kontoinhaber();
             kontoinhaber.setId(Long.parseLong(req.getParameter("Id")));
