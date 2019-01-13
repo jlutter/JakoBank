@@ -5,7 +5,9 @@ import de.othr.JakoBank.Entity.Konto;
 import de.othr.JakoBank.Entity.Kontoinhaber;
 import de.othr.JakoBank.Entity.Name;
 import de.othr.JakoBank.Interface.KundenverwaltungIF;
-import javax.faces.bean.RequestScoped;
+
+import javax.enterprise.context.RequestScoped;
+import javax.jws.WebMethod;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -57,48 +59,69 @@ public class Kundenverwaltung implements KundenverwaltungIF {
 
     @Override
     @Transactional
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum) {
-        kontoinhaber.setTelnum(telnum);
+    @WebMethod(exclude = true)
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber){
+        return kontoinhaber;
     }
 
     @Override
     @Transactional
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, Name name) {
+    @WebMethod(exclude = true)
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum) {
+        kontoinhaber.setTelnum(telnum);
+        return kontoinhaber;
+    }
+
+    @Override
+    @Transactional
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, Name name) {
         kontoinhaber.setName(name);
+        return kontoinhaber;
     }
 
     @Override
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, Adresse adresse) {
+    @Transactional
+    @WebMethod(exclude = true)
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, Adresse adresse) {
         kontoinhaber.setAdresse(adresse);
+        return kontoinhaber;
     }
 
     @Override
     @Transactional
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, Name name, Adresse adresse) {
-        kontoinhaber.setName(name);
-        kontoinhaber.setAdresse(adresse);
-    }
-
-    @Override
-    @Transactional
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Adresse adresse) {
-        kontoinhaber.setTelnum(telnum);
-        kontoinhaber.setAdresse(adresse);
-    }
-
-    @Override
-    @Transactional
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Name name) {
-        kontoinhaber.setTelnum(telnum);
-        kontoinhaber.setName(name);
-    }
-
-    @Override
-    @Transactional
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Name name, Adresse adresse) {
-        kontoinhaber.setTelnum(telnum);
+    @WebMethod(exclude = true)
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, Name name, Adresse adresse) {
         kontoinhaber.setName(name);
         kontoinhaber.setAdresse(adresse);
+        return kontoinhaber;
+    }
+
+    @Override
+    @Transactional
+    @WebMethod(exclude = true)
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Adresse adresse) {
+        kontoinhaber.setTelnum(telnum);
+        kontoinhaber.setAdresse(adresse);
+        return kontoinhaber;
+    }
+
+    @Override
+    @Transactional
+    @WebMethod(exclude = true)
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Name name) {
+        kontoinhaber.setTelnum(telnum);
+        kontoinhaber.setName(name);
+        return kontoinhaber;
+    }
+
+    @Override
+    @Transactional
+    @WebMethod(exclude = true)
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Name name, Adresse adresse) {
+        kontoinhaber.setTelnum(telnum);
+        kontoinhaber.setName(name);
+        kontoinhaber.setAdresse(adresse);
+        return kontoinhaber;
     }
 
     @Override

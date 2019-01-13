@@ -4,7 +4,8 @@ import de.othr.JakoBank.Entity.Adresse;
 import de.othr.JakoBank.Entity.Kontoinhaber;
 import de.othr.JakoBank.Entity.Name;
 import de.othr.JakoBank.Interface.KontoverwaltungIF;
-import javax.faces.bean.RequestScoped;
+
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;

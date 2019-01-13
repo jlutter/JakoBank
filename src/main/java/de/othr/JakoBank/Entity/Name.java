@@ -18,6 +18,6 @@ public class Name {
 
     @Override
     public String toString() {
-        return vorname + nachname;
+        return vorname + " " + nachname;
     }
 }
