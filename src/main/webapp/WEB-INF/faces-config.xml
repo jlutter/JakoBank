@@ -4,6 +4,33 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
+<navigation-rule>
+    <from-view-id>*</from-view-id>
 
+    <navigation-case>
+        <from-outcome>startseite</from-outcome>
+        <to-view-id>/index.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>mitarbeiter</from-outcome>
+        <to-view-id>/mitarbeiter/mitarbeitermgmt.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>details_mitarbeiter</from-outcome>
+        <to-view-id>/mitarbeiter/details.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>kunde</from-outcome>
+        <to-view-id>/kunde/login.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>kunde_konto</from-outcome>
+        <to-view-id>/kunde/kontomgmt.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>konto_bearbeiten</from-outcome>
+        <to-view-id>/kunde/kontomgmtbearbeiten.xhtml</to-view-id>
+    </navigation-case>
+</navigation-rule>
 
 </faces-config>
