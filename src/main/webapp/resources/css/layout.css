@@ -2,6 +2,7 @@
 #top {
     position: relative;
     background-color: black;
+    background-image: url("#{request.contextPath}/resources/images/oth-regensburg-logo-bildmarke.png");
     background-repeat: no-repeat;
     color: white;
     height: 70px;

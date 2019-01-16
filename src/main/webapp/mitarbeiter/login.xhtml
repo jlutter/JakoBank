@@ -13,12 +13,12 @@
                 <h:form>
                     <h:panelGrid columns="2">
                         <h:outputText value="Konto-ID: "/>
-                        <h:inputText value="#{kontoMgmtModel.loginName}"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.loginName}"/>
 
                         <h:outputText value="Vorname:"/>
-                        <h:inputText value="#{kontoMgmtModel.passwort}"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.passwort}"/>
 
-                        <h:commandButton value="Log In" action="#{kontoMgmtModel.login}"/><br/>
+                        <h:commandButton value="Log In" action="#{mitarbeiterMgmtModel.login()}"/><br/>
 
                     </h:panelGrid>
                 </h:form>

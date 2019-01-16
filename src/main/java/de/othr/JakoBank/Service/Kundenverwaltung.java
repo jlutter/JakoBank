@@ -23,18 +23,11 @@ public class Kundenverwaltung implements KundenverwaltungIF {
 
     @Override
     @Transactional
-    public Kontoinhaber newKontoinhaber(long telnum, String vorname, String nachname, String strasse, String ort, long plz, int hausnummer, Konto konto) {
-        Kontoinhaber kontoinhaber;
-
-        if(konto == null)
-            kontoinhaber = new Kontoinhaber(telnum, vorname, nachname, strasse, ort, plz, hausnummer);
-
-        else
-            kontoinhaber = new Kontoinhaber(telnum, vorname, nachname, strasse, ort, plz, hausnummer, konto);
+    public Kontoinhaber newKontoinhaber(Kontoinhaber kontoinhaber) {
 
         entityManager.persist(kontoinhaber);
 
-        return null;
+        return kontoinhaber;
     }
 
     @Override

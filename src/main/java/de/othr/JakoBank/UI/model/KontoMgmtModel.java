@@ -2,7 +2,6 @@ package de.othr.JakoBank.UI.model;
 
 import de.othr.JakoBank.Entity.*;
 import de.othr.JakoBank.Service.Kontoverwaltung;
-import de.othr.JakoBank.Service.TransaktionsService;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -16,30 +15,24 @@ public class KontoMgmtModel implements Serializable {
     @Inject
     private Kontoverwaltung kontoverwaltung;
 
-    @Inject
-    private TransaktionsService transaktionsService;
-
     private long telnum;
-    private String vorname;
-    private String nachname;
-    private String strasse;
-    private String ort;
-    private long plz;
-    private int hausnummer;
+    private Name name = new Name();
+    private Adresse adresse = new Adresse();
     private Konto konto;
-    private Kontoinhaber tempKontoinhaber = new Kontoinhaber();
-    private Transaktion tempTransaktion = new Transaktion();
+    private Kontoinhaber tempKontoinhaber;
     private boolean aendern = false;
     private String loginName;
     private String passwort;
 
     public String login() {
-        return "kunden_konto";
+        return "kunde";
     }
 
     //toDo
-    public String aenderVorbereiten() {
+    public String aendernVorbereiten(Kontoinhaber kontoinhaber) {
         this.aendern = true;
+
+        this.tempKontoinhaber = kontoinhaber;
 
         return "konto_bearbeiten";
     }
@@ -47,12 +40,9 @@ public class KontoMgmtModel implements Serializable {
     public String aendern() {
         this.aendern = false;
 
-        Name name = new Name(vorname, nachname);
-        Adresse adresse = new Adresse(strasse, ort, plz, hausnummer);
+        this.tempKontoinhaber = this.kontoverwaltung.changeKontoinhaber(tempKontoinhaber,telnum, name, adresse);
 
-        kontoverwaltung.changeKontoinhaber(tempKontoinhaber,telnum, name, adresse);
-
-        return "kunde_konto";
+        return "kunde";
     }
 
     //toDo
@@ -80,35 +70,39 @@ public class KontoMgmtModel implements Serializable {
         this.telnum = telnum;
     }
 
-    public void setVorname(String vorname) {
-        this.vorname = vorname;
+    public long getTelnum() {
+        return telnum;
     }
 
-    public void setNachname(String nachname) {
-        this.nachname = nachname;
+    public void setName(Name name) {
+        this.name = name;
     }
 
-    public void setStrasse (String strasse) {
-        this.strasse = strasse;
+    public Name getName() {
+        return name;
     }
 
-    public void setOrt (String ort) {
-        this.ort = ort;
+    public void setAdresse(Adresse adresse) {
+        this.adresse = adresse;
     }
 
-    public void setPlz (long plz) {
-        this.plz = plz;
-    }
-
-    public  void setHausnummer (int nr) {
-        this.hausnummer = nr;
+    public Adresse getAdresse() {
+        return adresse;
     }
 
     public void setPasswort (String pw){
         this.passwort = pw;
     }
 
+    public String getPasswort() {
+        return passwort;
+    }
+
     public void setLoginName(String login) {
         this.loginName = login;
+    }
+
+    public String getLoginName() {
+        return loginName;
     }
 }

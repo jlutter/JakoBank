@@ -12,6 +12,10 @@
         <to-view-id>/index.xhtml</to-view-id>
     </navigation-case>
     <navigation-case>
+        <from-outcome>mitarbeiter_login</from-outcome>
+        <to-view-id>/mitarbeiter/login.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
         <from-outcome>mitarbeiter</from-outcome>
         <to-view-id>/mitarbeiter/mitarbeitermgmt.xhtml</to-view-id>
     </navigation-case>
@@ -20,16 +24,28 @@
         <to-view-id>/mitarbeiter/details.xhtml</to-view-id>
     </navigation-case>
     <navigation-case>
-        <from-outcome>kunde</from-outcome>
+        <from-outcome>kunde_login</from-outcome>
         <to-view-id>/kunde/login.xhtml</to-view-id>
     </navigation-case>
     <navigation-case>
-        <from-outcome>kunde_konto</from-outcome>
+        <from-outcome>kunde</from-outcome>
         <to-view-id>/kunde/kontomgmt.xhtml</to-view-id>
     </navigation-case>
     <navigation-case>
         <from-outcome>konto_bearbeiten</from-outcome>
         <to-view-id>/kunde/kontomgmtbearbeiten.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>transaktion</from-outcome>
+        <to-view-id>/transaktion/transaktion.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>transaktion_check</from-outcome>
+        <to-view-id>/transaktion/details.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+    <from-outcome>transaktion_bestaetigt</from-outcome>
+    <to-view-id>/transaktion/bestaetigung.xhtml</to-view-id>
     </navigation-case>
 </navigation-rule>
 

@@ -16,17 +16,17 @@ public class Kontoinhaber extends GeneratedIdEntity {
 
     }
 
-    public Kontoinhaber(long telnum, String vorname, String nachname, String strasse, String ort, long plz, int hausnummer, Konto konto){
+    public Kontoinhaber(long telnum, Name name, Adresse adresse, Konto konto){
         this.telnum = telnum;
-        this.name = new Name(vorname, nachname);
-        this.adresse = new Adresse(strasse, ort, plz, hausnummer);
+        this.name = name;
+        this.adresse = adresse;
         this.konto = konto;
     }
 
-    public Kontoinhaber(long telnum, String vorname, String nachname, String strasse, String ort, long plz, int hausnummer) {
+    public Kontoinhaber(long telnum, Name name, Adresse adresse) {
         this.telnum = telnum;
-        this.name = new Name(vorname, nachname);
-        this.adresse = new Adresse(strasse, ort, plz, hausnummer);
+        this.name = name;
+        this.adresse = adresse;
     }
 
     public void setId(long id) {

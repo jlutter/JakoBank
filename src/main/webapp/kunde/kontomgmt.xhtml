@@ -17,28 +17,28 @@
                         <h:outputText value="#{kontoMgmtModel.tempKontoinhaber.id}"/>
 
                         <h:outputText value="Vorname:"/>
-                        <h:outputText value="#{kontoMgmtModel.vorname}"/>
+                        <h:outputText value="#{kontoMgmtModel.name.vorname}"/>
 
                         <h:outputText value="Nachname:"/>
-                        <h:outputText value="#{kontoMgmtModel.nachname}"/>
+                        <h:outputText value="#{kontoMgmtModel.name.nachname}"/>
 
                         <h:outputText value="Stra&szlig;e:"/>
-                        <h:outputText value="#{kontoMgmtModel.strasse}"/>
+                        <h:outputText value="#{kontoMgmtModel.adresse.strasse}"/>
 
                         <h:outputText value="Hausnummer:"/>
-                        <h:outputText value="#{kontoMgmtModel.hausnummer}"/>
+                        <h:outputText value="#{kontoMgmtModel.adresse.hausnummer}"/>
 
                         <h:outputText value="PLZ:"/>
-                        <h:outputText value="#{kontoMgmtModel.plz}"/>
+                        <h:outputText value="#{kontoMgmtModel.adresse.plz}"/>
 
                         <h:outputText value="Ort:"/>
-                        <h:outputText value="#{kontoMgmtModel.ort}"/>
+                        <h:outputText value="#{kontoMgmtModel.adresse.ort}"/>
 
                         <h:outputText value="Telefonnummer:"/>
                         <h:outputText value="#{kontoMgmtModel.telnum}"/>
 
-                        <h:commandButton value="Konto bearbeiten" action="#{kontoMgmtModel.aenderVorbereiten}}"/><br/>
-                        <h:commandButton value="Verlauf" action="#{kontoMgmtModel.verlauf}}"/><br/>
+                        <h:commandButton value="Konto bearbeiten" action="#{kontoMgmtModel.aendernVorbereiten(kontoMgmtModel.tempKontoinhaber)}"/><br/>
+                        <h:commandButton value="Verlauf" action="#{kontoMgmtModel.verlauf}"/><br/>
 
                     </h:panelGrid>
                 </h:form>

@@ -1,7 +1,9 @@
 package de.othr.JakoBank.UI.model;
 
+import de.othr.JakoBank.Entity.Adresse;
 import de.othr.JakoBank.Entity.Konto;
 import de.othr.JakoBank.Entity.Kontoinhaber;
+import de.othr.JakoBank.Entity.Name;
 import de.othr.JakoBank.Service.Kundenverwaltung;
 
 import javax.enterprise.context.SessionScoped;
@@ -18,26 +20,33 @@ public class MitarbeiterMgmtModel implements Serializable {
     private Kundenverwaltung kundenverwaltung;
 
     private long telnum;
-    private String vorname;
-    private String nachname;
-    private String strasse;
-    private String ort;
-    private long plz;
-    private int hausnummer;
-    private Konto konto;
-    private Kontoinhaber tempKontoinhaber = new Kontoinhaber();
+    private Name name = new Name();
+    private Adresse adresse = new Adresse();
+    private Konto konto = new Konto();
+    private Kontoinhaber tempKontoinhaber;
     private boolean aendern = false;
+    private String loginName;
+    private String passwort;
 
-    public String neuerKunde() {
-
-        kundenverwaltung.newKontoinhaber(telnum, vorname, nachname, strasse, ort, plz, hausnummer, konto);
-
-        return "mitarbeier";
+    public String login() {
+        return "mitarbeiter";
     }
 
     public String check() {
-        //Detailscheck
         return "details_mitarbeiter";
+    }
+
+    public String neuerKunde() {
+        this.tempKontoinhaber = new Kontoinhaber(this.telnum, this.name, this.adresse, this.konto);
+
+        this.kundenverwaltung.newKontoinhaber(tempKontoinhaber);
+
+        this.name = new Name();
+        this.adresse = new Adresse();
+        this.konto = new Konto();
+        this.telnum = 0;
+
+        return "mitarbeier";
     }
 
     //toDo
@@ -51,19 +60,19 @@ public class MitarbeiterMgmtModel implements Serializable {
     public String aendern() {
         this.aendern = false;
 
-        kundenverwaltung.changeKontoinhaber(tempKontoinhaber);
+        this.kundenverwaltung.changeKontoinhaber(tempKontoinhaber);
 
         return "mitarbeiter";
     }
 
     public String loeschen(Kontoinhaber kontoinhaber) {
-        kundenverwaltung.deleteKontoinhaber(kontoinhaber);
+        this.kundenverwaltung.deleteKontoinhaber(kontoinhaber);
 
         return "mitarbeiter";
     }
 
     public Kontoinhaber getTempKontoinhaber() {
-        return tempKontoinhaber;
+        return this.tempKontoinhaber;
     }
 
     public void setTempKontoinhaber(Kontoinhaber tempKontoinhaber) {
@@ -71,7 +80,7 @@ public class MitarbeiterMgmtModel implements Serializable {
     }
 
     public boolean isInAenderung() {
-        return aendern;
+        return this.aendern;
     }
 
     public void setInAenderung(boolean inAenderung) {
@@ -82,28 +91,24 @@ public class MitarbeiterMgmtModel implements Serializable {
         this.telnum = telnum;
     }
 
-    public void setVorname(String vorname) {
-        this.vorname = vorname;
+    public long getTelnum() {
+        return this.telnum;
     }
 
-    public void setNachname(String nachname) {
-        this.nachname = nachname;
+    public void setName(Name name){
+        this.name = name;
     }
 
-    public void setStrasse (String strasse) {
-        this.strasse = strasse;
+    public Name getName() {
+        return this.name;
     }
 
-    public void setOrt (String ort) {
-        this.ort = ort;
+    public void setAdresse(Adresse adresse){
+        this.adresse = adresse;
     }
 
-    public void setPlz (long plz) {
-        this.plz = plz;
-    }
-
-    public  void setHausnummer (int nr) {
-        this.hausnummer = nr;
+    public Adresse getAdresse() {
+        return this.adresse;
     }
 
     public Collection<Kontoinhaber> getKunden() {

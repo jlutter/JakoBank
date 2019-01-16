@@ -6,6 +6,10 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+<h:head>
+
+</h:head>
+
 <h:body>
     <ui:composition template="../WEB-INF/templates/basicTemplate.xhtml">
         <ui:define name="content">
@@ -18,27 +22,27 @@
                         <h:outputText value="#{mitarbeiterMgmtModel.tempKontoinhaber.id}" rendered="#{mitarbeiterMgmtModel.inAenderung}"/>
 
                         <h:outputText value="Vorname:"/>
-                        <h:inputText value="#{mitarbeiterMgmtModel.vorname}"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.name.vorname}"/>
 
                         <h:outputText value="Nachname:"/>
-                        <h:inputText value="#{mitarbeiterMgmtModel.nachname}"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.name.nachname}"/>
 
                         <h:outputText value="Stra&szlig;e:"/>
-                        <h:inputText value="#{mitarbeiterMgmtModel.strasse}"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.adresse.strasse}"/>
 
                         <h:outputText value="Hausnummer:"/>
-                        <h:inputText value="#{mitarbeiterMgmtModel.hausnummer}"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.adresse.hausnummer}"/>
 
                         <h:outputText value="PLZ:"/>
-                        <h:inputText value="#{mitarbeiterMgmtModel.plz}"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.adresse.plz}"/>
 
                         <h:outputText value="Ort:"/>
-                        <h:inputText value="#{mitarbeiterMgmtModel.ort}"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.adresse.ort}"/>
 
                         <h:outputText value="Telefonnummer:"/>
                         <h:inputText value="#{mitarbeiterMgmtModel.telnum}"/>
 
-                        <h:commandButton value="Konto erstellen" action="#{mitarbeiterMgmtModel.check}" rendered="#{!mitarbeiterMgmtModel.inAenderung}"/><br/>
+                        <h:commandButton value="Konto erstellen" action="#{mitarbeiterMgmtModel.check()}" rendered="#{!mitarbeiterMgmtModel.inAenderung}"/><br/>
                         <h:commandButton value="&Auml;ndern" action="#{mitarbeiterMgmtModel.aendern()}" rendered="#{mitarbeiterMgmtModel.inAenderung}"/><br/>
 
                     </h:panelGrid>

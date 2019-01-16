@@ -23,4 +23,36 @@ public class Adresse {
     public String toString() {
         return  "Strasse: " + strasse + " " + "Hausnummer: " + hausnummer + "\n" + "Postleitzahl: " + plz + " " + "Ort: " + ort + " ";
     }
+
+    public void setStrasse(String strasse) {
+        this.strasse = strasse;
+    }
+
+    public void setOrt(String ort) {
+        this.ort = ort;
+    }
+
+    public void setPlz(long plz) {
+        this.plz = plz;
+    }
+
+    public void setHausnummer(int hausnummer) {
+        this.hausnummer = hausnummer;
+    }
+
+    public String getStrasse() {
+        return strasse;
+    }
+
+    public String getOrt() {
+        return ort;
+    }
+
+    public long getPlz() {
+        return plz;
+    }
+
+    public int getHausnummer() {
+        return hausnummer;
+    }
 }

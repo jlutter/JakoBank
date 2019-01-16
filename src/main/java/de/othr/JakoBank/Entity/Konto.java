@@ -26,4 +26,8 @@ public class Konto extends RandomIdEntity {
     public BigDecimal getKontostand() {
         return kontostand;
     }
+
+    public void setKontostand(BigDecimal kontostand) {
+        this.kontostand = kontostand;
+    }
 }

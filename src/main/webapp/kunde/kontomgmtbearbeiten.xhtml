@@ -5,7 +5,45 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+<h:body>
+    <ui:composition template="../WEB-INF/templates/basicTemplate.xhtml">
+        <ui:define name="content">
+            <h1>Kontoverwaltung</h1>
+            <f:view>
+                <h2>Detailansicht</h2>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputText value="Konto-ID:"/>
+                        <h:outputText value="#{kontoMgmtModel.tempKontoinhaber.id}"/>
+
+                        <h:outputText value="Vorname:"/>
+                        <h:inputText value="#{kontoMgmtModel.name.vorname}"/>
+
+                        <h:outputText value="Nachname:"/>
+                        <h:inputText value="#{kontoMgmtModel.name.nachname}"/>
+
+                        <h:outputText value="Stra&szlig;e:"/>
+                        <h:inputText value="#{kontoMgmtModel.adresse.strasse}"/>
+
+                        <h:outputText value="Hausnummer:"/>
+                        <h:inputText value="#{kontoMgmtModel.adresse.hausnummer}"/>
+
+                        <h:outputText value="PLZ:"/>
+                        <h:inputText value="#{kontoMgmtModel.adresse.plz}"/>
+
+                        <h:outputText value="Ort:"/>
+                        <h:inputText value="#{kontoMgmtModel.adresse.ort}"/>
+
+                        <h:outputText value="Telefonnummer:"/>
+                        <h:inputText value="#{kontoMgmtModel.telnum}"/>
+
+                        <h:commandButton value="Konto bearbeiten" action="#{kontoMgmtModel.aendernVorbereiten(kontoMgmtModel.tempKontoinhaber)}"/><br/>
+                        <h:commandButton value="Abbrechen" action="kunde"/><br/>
+
+                    </h:panelGrid>
+                </h:form>
+            </f:view>
+        </ui:define>
+    </ui:composition>
+</h:body>
 </html>

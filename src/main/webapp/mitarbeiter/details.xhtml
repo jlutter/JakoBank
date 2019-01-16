@@ -17,27 +17,27 @@
                         <h:outputText value="#{mitarbeiterMgmtModel.tempKontoinhaber.id}" rendered="#{mitarbeiterMgmtModel.inAenderung}"/>
 
                         <h:outputText value="Vorname:"/>
-                        <h:outputText value="#{mitarbeiterMgmtModel.vorname}"/>
+                        <h:outputText value="#{mitarbeiterMgmtModel.name.vorname}"/>
 
                         <h:outputText value="Nachname:"/>
-                        <h:outputText value="#{mitarbeiterMgmtModel.nachname}"/>
+                        <h:outputText value="#{mitarbeiterMgmtModel.name.nachname}"/>
 
                         <h:outputText value="Stra&szlig;e:"/>
-                        <h:outputText value="#{mitarbeiterMgmtModel.strasse}"/>
+                        <h:outputText value="#{mitarbeiterMgmtModel.adresse.strasse}"/>
 
                         <h:outputText value="Hausnummer:"/>
-                        <h:outputText value="#{mitarbeiterMgmtModel.hausnummer}"/>
+                        <h:outputText value="#{mitarbeiterMgmtModel.adresse.hausnummer}"/>
 
                         <h:outputText value="PLZ:"/>
-                        <h:outputText value="#{mitarbeiterMgmtModel.plz}"/>
+                        <h:outputText value="#{mitarbeiterMgmtModel.adresse.plz}"/>
 
                         <h:outputText value="Ort:"/>
-                        <h:outputText value="#{mitarbeiterMgmtModel.ort}"/>
+                        <h:outputText value="#{mitarbeiterMgmtModel.adresse.ort}"/>
 
                         <h:outputText value="Telefonnummer:"/>
                         <h:outputText value="#{mitarbeiterMgmtModel.telnum}"/>
 
-                        <h:commandButton value="Konto erstellen" action="#{mitarbeiterMgmtModel.neuerKunde}}"/><br/>
+                        <h:commandButton value="Konto erstellen" action="#{mitarbeiterMgmtModel.neuerKunde()}"/><br/>
 
                     </h:panelGrid>
                 </h:form>

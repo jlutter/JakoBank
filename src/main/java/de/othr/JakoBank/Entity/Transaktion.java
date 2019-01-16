@@ -31,4 +31,36 @@ public class Transaktion extends GeneratedIdEntity {
                 + "\nBetrag: " + betrag.toString()
                 + "\nVerwendungszweck: \n" + verwendungszweck;
     }
+
+    public long getAuftraggeber() {
+        return auftraggeber;
+    }
+
+    public long getZiel() {
+        return ziel;
+    }
+
+    public BigDecimal getBetrag() {
+        return betrag;
+    }
+
+    public String getVerwendungszweck() {
+        return verwendungszweck;
+    }
+
+    public void setAuftraggeber(long auftraggeber) {
+        this.auftraggeber = auftraggeber;
+    }
+
+    public void setZiel(long ziel) {
+        this.ziel = ziel;
+    }
+
+    public void setBetrag(BigDecimal betrag) {
+        this.betrag = betrag;
+    }
+
+    public void setVerwendungszweck(String verwendungszweck) {
+        this.verwendungszweck = verwendungszweck;
+    }
 }

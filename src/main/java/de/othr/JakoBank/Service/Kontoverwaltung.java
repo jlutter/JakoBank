@@ -18,47 +18,61 @@ public class Kontoverwaltung implements KontoverwaltungIF {
 
     @Override
     @Transactional
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum) {
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum) {
         kontoinhaber.setTelnum(telnum);
+
+        return kontoinhaber;
     }
 
     @Override
     @Transactional
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, Name name) {
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, Name name) {
         kontoinhaber.setName(name);
+
+        return kontoinhaber;
     }
 
     @Override
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, Adresse adresse) {
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, Adresse adresse) {
         kontoinhaber.setAdresse(adresse);
+
+        return kontoinhaber;
     }
 
     @Override
     @Transactional
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, Name name, Adresse adresse) {
-        kontoinhaber.setName(name);
-        kontoinhaber.setAdresse(adresse);
-    }
-
-    @Override
-    @Transactional
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Adresse adresse) {
-        kontoinhaber.setTelnum(telnum);
-        kontoinhaber.setAdresse(adresse);
-    }
-
-    @Override
-    @Transactional
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Name name) {
-        kontoinhaber.setTelnum(telnum);
-        kontoinhaber.setName(name);
-    }
-
-    @Override
-    @Transactional
-    public void changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Name name, Adresse adresse) {
-        kontoinhaber.setTelnum(telnum);
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, Name name, Adresse adresse) {
         kontoinhaber.setName(name);
         kontoinhaber.setAdresse(adresse);
+
+        return kontoinhaber;
+    }
+
+    @Override
+    @Transactional
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Adresse adresse) {
+        kontoinhaber.setTelnum(telnum);
+        kontoinhaber.setAdresse(adresse);
+
+        return kontoinhaber;
+    }
+
+    @Override
+    @Transactional
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Name name) {
+        kontoinhaber.setTelnum(telnum);
+        kontoinhaber.setName(name);
+
+        return kontoinhaber;
+    }
+
+    @Override
+    @Transactional
+    public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Name name, Adresse adresse) {
+        kontoinhaber.setTelnum(telnum);
+        kontoinhaber.setName(name);
+        kontoinhaber.setAdresse(adresse);
+
+        return kontoinhaber;
     }
 }
