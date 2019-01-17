@@ -6,10 +6,6 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<h:head>
-
-</h:head>
-
 <h:body>
     <ui:composition template="../WEB-INF/templates/basicTemplate.xhtml">
         <ui:define name="content">
@@ -42,9 +38,11 @@
                         <h:outputText value="Telefonnummer:"/>
                         <h:inputText value="#{mitarbeiterMgmtModel.telnum}"/>
 
+                        <h:outputText value="Passwort:"/>
+                        <h:inputText value="#{mitarbeiterMgmtModel.passwort}"/>
+
                         <h:commandButton value="Konto erstellen" action="#{mitarbeiterMgmtModel.check()}" rendered="#{!mitarbeiterMgmtModel.inAenderung}"/><br/>
                         <h:commandButton value="&Auml;ndern" action="#{mitarbeiterMgmtModel.aendern()}" rendered="#{mitarbeiterMgmtModel.inAenderung}"/><br/>
-
                     </h:panelGrid>
 
                     <h2>Kunden</h2>
@@ -61,7 +59,6 @@
                             </f:facet>
                             <h:outputText value="#{kunde.name}"/>
                         </h:column>
-
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="Aktionen" />

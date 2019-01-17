@@ -5,6 +5,7 @@ import de.othr.JakoBank.Entity.Transaktion;
 import de.othr.JakoBank.Interface.TransaktionsIF;
 
 import javax.enterprise.context.SessionScoped;
+import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,6 +20,7 @@ public class TransaktionsService implements TransaktionsIF, Serializable {
     @PersistenceContext(unitName = "JakoBank")
     private EntityManager entityManager;
 
+    @WebMethod
     @Override
     @Transactional
     public void lastschriftAufgeben(Transaktion transaktion) {
@@ -33,6 +35,7 @@ public class TransaktionsService implements TransaktionsIF, Serializable {
         else System.out.println("Auftrag kann nicht ausgeführt weden: \nZu wenig Geld am Konto!");
     }
 
+    @WebMethod
     @Override
     @Transactional
     public void ueberweisungtaetigen(Transaktion transaktion) {

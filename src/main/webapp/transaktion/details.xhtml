@@ -12,11 +12,8 @@
             <f:view>
                 <h:form>
                     <h:panelGrid columns="2">
-                        <h:outputText value="Auftraggeber"/>
+                        <h:outputText value="Auftraggeber:"/>
                         <h:outputText value="#{transsaktionsMgmtModel.tempTransaktion.auftraggeber}"/>
-
-                        <!-- <h:outputText value="Auftragsart:"/>
-                        <h:outputText value="#{mitarbeiterMgmtModel.name.vorname}"/> -->
 
                         <h:outputText value="Ziel:"/>
                         <h:outputText value="#{transsaktionsMgmtModel.tempTransaktion.ziel}"/>
@@ -24,8 +21,8 @@
                         <h:outputText value="Betrag:"/>
                         <h:outputText value="#{transsaktionsMgmtModel.tempTransaktion.betrag}"/>
 
-                        <h:outputText value="Verwendungszweck:"/>
-                        <h:outputText value="#{transsaktionsMgmtModel.tempTransaktion.verwendungszweck}"/>
+                        <h:outputText value="Verwendungszweck:"/><br/>
+                        <h:outputText value="#{transsaktionsMgmtModel.tempTransaktion.verwendungszweck}"/><br/>
 
                         <h:commandButton value="Transaktion starten!" action="#{transsaktionsMgmtModel.transaktionStarten}"/><br/>
 

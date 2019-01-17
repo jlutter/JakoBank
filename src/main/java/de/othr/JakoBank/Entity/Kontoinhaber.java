@@ -11,16 +11,18 @@ public class Kontoinhaber extends GeneratedIdEntity {
     private Adresse adresse;
     @OneToOne
     private Konto konto;
+    private String passwort;
 
     public Kontoinhaber(){
 
     }
 
-    public Kontoinhaber(long telnum, Name name, Adresse adresse, Konto konto){
+    public Kontoinhaber(long telnum, Name name, Adresse adresse, Konto konto, String passwort){
         this.telnum = telnum;
         this.name = name;
         this.adresse = adresse;
         this.konto = konto;
+        this.passwort = passwort;
     }
 
     public Kontoinhaber(long telnum, Name name, Adresse adresse) {
@@ -71,5 +73,13 @@ public class Kontoinhaber extends GeneratedIdEntity {
 
     public Konto getKonto() {
         return konto;
+    }
+
+    public String getPasswort() {
+        return passwort;
+    }
+
+    public void setPasswort(String passwort) {
+        this.passwort = passwort;
     }
 }

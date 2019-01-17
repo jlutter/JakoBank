@@ -12,14 +12,8 @@
             <f:view>
                 <h:form>
                     <h:panelGrid columns="2">
-                        <h:outputText value="Auftraggeber"/>
+                        <h:outputText value="Auftraggeber:"/>
                         <h:outputText value="#{transsaktionsMgmtModel.tempTransaktion.auftraggeber}"/>
-
-                        <!--<h:outputText value="Auftragsart:"/>
-                        <h:selectOneMenu value="#{transsaktionsMgmtModel.ueberweisung}">
-                            <f:converter binding="#{transsaktionsMgmtModel.transaktionsConverter}"/>
-                            <f:selectItems value="#{transsaktionsMgmtModel.ueberweisung}"/>
-                        </h:selectOneMenu>-->
 
                         <h:outputText value="Ziel:"/>
                         <h:inputText value="#{transsaktionsMgmtModel.tempTransaktion.ziel}"/>

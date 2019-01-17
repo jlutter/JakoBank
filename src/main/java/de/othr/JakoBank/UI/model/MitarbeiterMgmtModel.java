@@ -25,11 +25,18 @@ public class MitarbeiterMgmtModel implements Serializable {
     private Konto konto = new Konto();
     private Kontoinhaber tempKontoinhaber;
     private boolean aendern = false;
-    private String loginName;
+    private long loginName;
     private String passwort;
 
     public String login() {
-        return "mitarbeiter";
+
+        tempKontoinhaber = kundenverwaltung.getKundebyId(loginName);
+
+        if(tempKontoinhaber.getId() == loginName && tempKontoinhaber.getPasswort() == passwort)
+            return "mitarbeiter";
+
+        else
+            return "mitarbeiter_login";
     }
 
     public String check() {
@@ -37,7 +44,7 @@ public class MitarbeiterMgmtModel implements Serializable {
     }
 
     public String neuerKunde() {
-        this.tempKontoinhaber = new Kontoinhaber(this.telnum, this.name, this.adresse, this.konto);
+        this.tempKontoinhaber = new Kontoinhaber(this.telnum, this.name, this.adresse, this.konto, this.passwort);
 
         this.kundenverwaltung.newKontoinhaber(tempKontoinhaber);
 
@@ -46,7 +53,7 @@ public class MitarbeiterMgmtModel implements Serializable {
         this.konto = new Konto();
         this.telnum = 0;
 
-        return "mitarbeier";
+        return "mitarbeiter";
     }
 
     //toDo
@@ -109,6 +116,22 @@ public class MitarbeiterMgmtModel implements Serializable {
 
     public Adresse getAdresse() {
         return this.adresse;
+    }
+
+    public String getPasswort() {
+        return passwort;
+    }
+
+    public void setPasswort(String passwort) {
+        this.passwort = passwort;
+    }
+
+    public long getLoginName() {
+        return loginName;
+    }
+
+    public void setLoginName(long loginName) {
+        this.loginName = loginName;
     }
 
     public Collection<Kontoinhaber> getKunden() {

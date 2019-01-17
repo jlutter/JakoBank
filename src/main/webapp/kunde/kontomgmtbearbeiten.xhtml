@@ -37,7 +37,10 @@
                         <h:outputText value="Telefonnummer:"/>
                         <h:inputText value="#{kontoMgmtModel.telnum}"/>
 
-                        <h:commandButton value="Konto bearbeiten" action="#{kontoMgmtModel.aendernVorbereiten(kontoMgmtModel.tempKontoinhaber)}"/><br/>
+                        <h:outputText value="Passwort ändern:"/>
+                        <h:inputText value="#{kontoMgmtModel.passwort}"/>
+
+                        <h:commandButton value="Konto bearbeiten" action="#{kontoMgmtModel.aendernVorbereiten(kontoMgmtModel.tempKontoinhaber)}"/>
                         <h:commandButton value="Abbrechen" action="kunde"/><br/>
 
                     </h:panelGrid>

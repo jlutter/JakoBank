@@ -37,7 +37,9 @@
                         <h:outputText value="Telefonnummer:"/>
                         <h:outputText value="#{kontoMgmtModel.telnum}"/>
 
-                        <h:commandButton value="Konto bearbeiten" action="#{kontoMgmtModel.aendernVorbereiten(kontoMgmtModel.tempKontoinhaber)}"/><br/>
+                        <h:commandButton value="Konto bearbeiten" action="#{kontoMgmtModel.aendernVorbereiten(kontoMgmtModel.tempKontoinhaber)}"/>
+                        <h:commandButton value="Transaktion durchführen" action="#{transsaktionsMgmtModel.transaktion}"/>
+
                         <h:commandButton value="Verlauf" action="#{kontoMgmtModel.verlauf}"/><br/>
 
                     </h:panelGrid>

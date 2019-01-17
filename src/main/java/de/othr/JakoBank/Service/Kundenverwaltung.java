@@ -24,6 +24,7 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     @Override
     @Transactional
     public Kontoinhaber newKontoinhaber(Kontoinhaber kontoinhaber) {
+        createKonto(kontoinhaber.getKonto());
 
         entityManager.persist(kontoinhaber);
 
@@ -32,9 +33,7 @@ public class Kundenverwaltung implements KundenverwaltungIF {
 
     @Override
     @Transactional
-    public Konto createKonto() {
-        var konto = new Konto();
-
+    public Konto createKonto(Konto konto) {
         entityManager.persist(konto);
 
         return konto;
@@ -69,6 +68,7 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     @Transactional
     public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, Name name) {
         kontoinhaber.setName(name);
+
         return kontoinhaber;
     }
 

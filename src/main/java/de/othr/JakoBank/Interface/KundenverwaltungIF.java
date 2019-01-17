@@ -12,7 +12,7 @@ public interface KundenverwaltungIF {
 
     public Kontoinhaber newKontoinhaber(Kontoinhaber kontoinhaber);
 
-    public Konto createKonto();
+    public Konto createKonto(Konto konto);
 
     public Konto createKonto(BigDecimal startbetrag);
 

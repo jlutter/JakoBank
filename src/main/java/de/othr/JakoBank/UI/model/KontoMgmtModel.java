@@ -2,6 +2,7 @@ package de.othr.JakoBank.UI.model;
 
 import de.othr.JakoBank.Entity.*;
 import de.othr.JakoBank.Service.Kontoverwaltung;
+import de.othr.JakoBank.Service.Kundenverwaltung;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -15,17 +16,27 @@ public class KontoMgmtModel implements Serializable {
     @Inject
     private Kontoverwaltung kontoverwaltung;
 
+    @Inject
+    private Kundenverwaltung kundenverwaltung;
+
     private long telnum;
     private Name name = new Name();
     private Adresse adresse = new Adresse();
     private Konto konto;
     private Kontoinhaber tempKontoinhaber;
     private boolean aendern = false;
-    private String loginName;
+    private long loginName;
     private String passwort;
 
     public String login() {
-        return "kunde";
+
+        tempKontoinhaber = kundenverwaltung.getKundebyId(loginName);
+
+        if(tempKontoinhaber.getId() == loginName && tempKontoinhaber.getPasswort() == passwort)
+            return "kunde";
+
+        else
+            return "kunde_login";
     }
 
     //toDo
@@ -98,11 +109,11 @@ public class KontoMgmtModel implements Serializable {
         return passwort;
     }
 
-    public void setLoginName(String login) {
+    public void setLoginName(long login) {
         this.loginName = login;
     }
 
-    public String getLoginName() {
+    public long getLoginName() {
         return loginName;
     }
 }
