@@ -12,7 +12,7 @@ public class RandomIdEntity extends SingleIdEntity<String> {
     protected String id;
     
     protected RandomIdEntity() {
-        this.id = EntityUtils.createRandomString(4);
+        this.id = EntityUtils.createRandomUUID();
     }
     
             

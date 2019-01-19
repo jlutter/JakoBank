@@ -1,6 +1,7 @@
 package de.othr.JakoBank.Service;
 
 import de.othr.JakoBank.Entity.Konto;
+import de.othr.JakoBank.Entity.Kontoinhaber;
 import de.othr.JakoBank.Entity.Transaktion;
 import de.othr.JakoBank.Interface.TransaktionsIF;
 
@@ -24,8 +25,11 @@ public class TransaktionsService implements TransaktionsIF, Serializable {
     @Override
     @Transactional
     public void lastschriftAufgeben(Transaktion transaktion) {
-        var auftraggeber = entityManager.find(Konto.class, transaktion.getAuftraggeber());
-        var ziel = entityManager.find(Konto.class, transaktion.getZiel());
+        var iAuftraggeber = entityManager.find(Kontoinhaber.class, transaktion.getAuftraggeber());
+        var iZiel = entityManager.find(Kontoinhaber.class, transaktion.getZiel());
+
+        var auftraggeber = entityManager.find(Konto.class, iAuftraggeber.getKonto().getKontoNr());
+        var ziel = entityManager.find(Konto.class, iZiel.getKonto().getKontoNr());
 
         if(auftraggeber.getKontostand().compareTo(transaktion.getBetrag()) >= 0) {
             auftraggeber.setKontostand(auftraggeber.getKontostand().subtract(transaktion.getBetrag()));
@@ -39,8 +43,11 @@ public class TransaktionsService implements TransaktionsIF, Serializable {
     @Override
     @Transactional
     public void ueberweisungtaetigen(Transaktion transaktion) {
-        var auftraggeber = entityManager.find(Konto.class, transaktion.getAuftraggeber());
-        var ziel = entityManager.find(Konto.class, transaktion.getZiel());
+        var iAuftraggeber = entityManager.find(Kontoinhaber.class, transaktion.getAuftraggeber());
+        var iZiel = entityManager.find(Kontoinhaber.class, transaktion.getZiel());
+
+        var auftraggeber = entityManager.find(Konto.class, iAuftraggeber.getKonto().getKontoNr());
+        var ziel = entityManager.find(Konto.class, iZiel.getKonto().getKontoNr());
 
         auftraggeber.setKontostand(auftraggeber.getKontostand().subtract(transaktion.getBetrag()));
         ziel.setKontostand(ziel.getKontostand().add(transaktion.getBetrag()));

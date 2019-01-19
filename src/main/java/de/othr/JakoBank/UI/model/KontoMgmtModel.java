@@ -8,6 +8,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Named
 @SessionScoped
@@ -22,7 +23,7 @@ public class KontoMgmtModel implements Serializable {
     private long telnum;
     private Name name = new Name();
     private Adresse adresse = new Adresse();
-    private Konto konto;
+    private BigDecimal betrag;
     private Kontoinhaber tempKontoinhaber;
     private boolean aendern = false;
     private long loginName;
@@ -32,7 +33,7 @@ public class KontoMgmtModel implements Serializable {
 
         tempKontoinhaber = kundenverwaltung.getKundebyId(loginName);
 
-        if(tempKontoinhaber.getId() == loginName && tempKontoinhaber.getPasswort() == passwort)
+        if(tempKontoinhaber.getId() == loginName && tempKontoinhaber.getPasswort().equals(passwort))
             return "kunde";
 
         else
@@ -40,10 +41,13 @@ public class KontoMgmtModel implements Serializable {
     }
 
     //toDo
-    public String aendernVorbereiten(Kontoinhaber kontoinhaber) {
+    public String aendernVorbereiten() {
         this.aendern = true;
 
-        this.tempKontoinhaber = kontoinhaber;
+        name = tempKontoinhaber.getName();
+        adresse = tempKontoinhaber.getAdresse();
+        telnum = tempKontoinhaber.getTelnum();
+        passwort = tempKontoinhaber.getPasswort();
 
         return "konto_bearbeiten";
     }
@@ -52,6 +56,16 @@ public class KontoMgmtModel implements Serializable {
         this.aendern = false;
 
         this.tempKontoinhaber = this.kontoverwaltung.changeKontoinhaber(tempKontoinhaber,telnum, name, adresse);
+
+        return "kunde";
+    }
+
+    public String chargeIO() {
+        return "charge";
+    }
+
+    public String charge() {
+        kontoverwaltung.chargeKonto(tempKontoinhaber.getKonto(), betrag);
 
         return "kunde";
     }
@@ -115,5 +129,13 @@ public class KontoMgmtModel implements Serializable {
 
     public long getLoginName() {
         return loginName;
+    }
+
+    public BigDecimal getBetrag() {
+        return betrag;
+    }
+
+    public void setBetrag(BigDecimal betrag) {
+        this.betrag = betrag;
     }
 }

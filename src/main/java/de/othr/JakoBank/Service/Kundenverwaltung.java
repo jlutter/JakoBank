@@ -53,6 +53,8 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     @Transactional
     @WebMethod(exclude = true)
     public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber){
+        kontoinhaber = entityManager.merge(kontoinhaber);
+
         return kontoinhaber;
     }
 
@@ -61,6 +63,9 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     @WebMethod(exclude = true)
     public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum) {
         kontoinhaber.setTelnum(telnum);
+
+        kontoinhaber = entityManager.merge(kontoinhaber);
+
         return kontoinhaber;
     }
 
@@ -68,6 +73,8 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     @Transactional
     public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, Name name) {
         kontoinhaber.setName(name);
+
+        kontoinhaber = entityManager.merge(kontoinhaber);
 
         return kontoinhaber;
     }
@@ -77,6 +84,9 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     @WebMethod(exclude = true)
     public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, Adresse adresse) {
         kontoinhaber.setAdresse(adresse);
+
+        kontoinhaber = entityManager.merge(kontoinhaber);
+
         return kontoinhaber;
     }
 
@@ -86,6 +96,9 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, Name name, Adresse adresse) {
         kontoinhaber.setName(name);
         kontoinhaber.setAdresse(adresse);
+
+        kontoinhaber = entityManager.merge(kontoinhaber);
+
         return kontoinhaber;
     }
 
@@ -95,6 +108,9 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Adresse adresse) {
         kontoinhaber.setTelnum(telnum);
         kontoinhaber.setAdresse(adresse);
+
+        kontoinhaber = entityManager.merge(kontoinhaber);
+
         return kontoinhaber;
     }
 
@@ -104,6 +120,9 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Name name) {
         kontoinhaber.setTelnum(telnum);
         kontoinhaber.setName(name);
+
+        kontoinhaber = entityManager.merge(kontoinhaber);
+
         return kontoinhaber;
     }
 
@@ -114,6 +133,9 @@ public class Kundenverwaltung implements KundenverwaltungIF {
         kontoinhaber.setTelnum(telnum);
         kontoinhaber.setName(name);
         kontoinhaber.setAdresse(adresse);
+
+        kontoinhaber = entityManager.merge(kontoinhaber);
+
         return kontoinhaber;
     }
 

@@ -16,30 +16,37 @@
                         <h:outputText value="Konto-ID:"/>
                         <h:outputText value="#{kontoMgmtModel.tempKontoinhaber.id}"/>
 
+                        <h:outputText value="Konto-Nr.:"/>
+                        <h:outputText value="#{kontoMgmtModel.tempKontoinhaber.konto.kontoNr}"/>
+
+                        <h:outputText value="Guthaben:"/>
+                        <h:outputText value="#{kontoMgmtModel.tempKontoinhaber.konto.kontostand}"/>
+
                         <h:outputText value="Vorname:"/>
-                        <h:outputText value="#{kontoMgmtModel.name.vorname}"/>
+                        <h:outputText value="#{kontoMgmtModel.tempKontoinhaber.name.vorname}"/>
 
                         <h:outputText value="Nachname:"/>
-                        <h:outputText value="#{kontoMgmtModel.name.nachname}"/>
+                        <h:outputText value="#{kontoMgmtModel.tempKontoinhaber.name.nachname}"/>
 
                         <h:outputText value="Stra&szlig;e:"/>
-                        <h:outputText value="#{kontoMgmtModel.adresse.strasse}"/>
+                        <h:outputText value="#{kontoMgmtModel.tempKontoinhaber.adresse.strasse}"/>
 
                         <h:outputText value="Hausnummer:"/>
-                        <h:outputText value="#{kontoMgmtModel.adresse.hausnummer}"/>
+                        <h:outputText value="#{kontoMgmtModel.tempKontoinhaber.adresse.hausnummer}"/>
 
                         <h:outputText value="PLZ:"/>
-                        <h:outputText value="#{kontoMgmtModel.adresse.plz}"/>
+                        <h:outputText value="#{kontoMgmtModel.tempKontoinhaber.adresse.plz}"/>
 
                         <h:outputText value="Ort:"/>
-                        <h:outputText value="#{kontoMgmtModel.adresse.ort}"/>
+                        <h:outputText value="#{kontoMgmtModel.tempKontoinhaber.adresse.ort}"/>
 
                         <h:outputText value="Telefonnummer:"/>
-                        <h:outputText value="#{kontoMgmtModel.telnum}"/>
+                        <h:outputText value="#{kontoMgmtModel.tempKontoinhaber.telnum}"/>
 
-                        <h:commandButton value="Konto bearbeiten" action="#{kontoMgmtModel.aendernVorbereiten(kontoMgmtModel.tempKontoinhaber)}"/>
-                        <h:commandButton value="Transaktion durchführen" action="#{transsaktionsMgmtModel.transaktion}"/>
+                        <h:commandButton value="Konto bearbeiten" action="#{kontoMgmtModel.aendernVorbereiten()}"/>
+                        <h:commandButton value="Transaktion durchführen" action="#{transsaktionsMgmtModel.transaktion(kontoMgmtModel.tempKontoinhaber)}"/>
 
+                        <h:commandButton value="Konto aufladen" action="#{kontoMgmtModel.chargeIO}"/>
                         <h:commandButton value="Verlauf" action="#{kontoMgmtModel.verlauf}"/><br/>
 
                     </h:panelGrid>

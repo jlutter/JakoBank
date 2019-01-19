@@ -1,5 +1,6 @@
 package de.othr.JakoBank.UI.model;
 
+import de.othr.JakoBank.Entity.Kontoinhaber;
 import de.othr.JakoBank.Entity.Transaktion;
 import de.othr.JakoBank.Service.TransaktionsService;
 //import de.othr.JakoBank.UI.converter.TransaktionsConverter;
@@ -21,9 +22,13 @@ public class TranssaktionsMgmtModel implements Serializable {
     //private TransaktionsConverter transaktionsConverter;
 
     private Transaktion tempTransaktion = new Transaktion();
+    private Kontoinhaber tempKontoinhaber;
     private boolean ueberweisung = false;
 
-    public String transaktion(){
+    public String transaktion(Kontoinhaber kontoinhaber){
+        tempKontoinhaber = kontoinhaber;
+        tempTransaktion.setAuftraggeber(tempKontoinhaber.getId());
+
         return "transaktion";
     }
 
