@@ -32,7 +32,7 @@ public class MitarbeiterMgmtModel implements Serializable {
 
         tempKontoinhaber = kundenverwaltung.getKundebyId(loginName);
 
-        if(tempKontoinhaber.getId() == loginName && tempKontoinhaber.getPasswort() == passwort)
+        if(tempKontoinhaber.getId() == loginName && tempKontoinhaber.getPasswort().equals(passwort))
             return "mitarbeiter";
 
         else

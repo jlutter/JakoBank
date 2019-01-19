@@ -3,7 +3,12 @@ package de.othr.JakoBank.Entity;
 import de.othr.JakoBank.Entity.util.GeneratedIdEntity;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.PROPERTY)
 @Entity
 public class Kontoinhaber extends GeneratedIdEntity {
     private long telnum;

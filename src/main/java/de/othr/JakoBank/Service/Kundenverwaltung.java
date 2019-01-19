@@ -173,8 +173,9 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     @Override
     public List<Kontoinhaber> getAllKontoinhaber() {
         TypedQuery<Kontoinhaber> query = entityManager.createQuery(
-                "SELECT k FROM Kontoinhaber AS k",
+                "SELECT k FROM Kontoinhaber k",
                 Kontoinhaber.class
         );
-        return query.getResultList();    }
+        return query.getResultList();
+    }
 }

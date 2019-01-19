@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Collection;
 
 @Named
 @SessionScoped
@@ -33,7 +34,7 @@ public class KontoMgmtModel implements Serializable {
 
         tempKontoinhaber = kundenverwaltung.getKundebyId(loginName);
 
-        if(tempKontoinhaber.getId() == loginName && tempKontoinhaber.getPasswort().equals(passwort))
+        if (tempKontoinhaber.getId() == loginName && tempKontoinhaber.getPasswort().equals(passwort))
             return "kunde";
 
         else
@@ -55,8 +56,12 @@ public class KontoMgmtModel implements Serializable {
     public String aendern() {
         this.aendern = false;
 
-        this.tempKontoinhaber = this.kontoverwaltung.changeKontoinhaber(tempKontoinhaber,telnum, name, adresse);
+        this.tempKontoinhaber = this.kontoverwaltung.changeKontoinhaber(tempKontoinhaber, telnum, name, adresse);
 
+        return "kunde";
+    }
+
+    public String ret() {
         return "kunde";
     }
 
@@ -70,7 +75,6 @@ public class KontoMgmtModel implements Serializable {
         return "kunde";
     }
 
-    //toDo
     public String verlauf() {
         return "verlauf";
     }
@@ -115,7 +119,7 @@ public class KontoMgmtModel implements Serializable {
         return adresse;
     }
 
-    public void setPasswort (String pw){
+    public void setPasswort(String pw) {
         this.passwort = pw;
     }
 
@@ -137,5 +141,9 @@ public class KontoMgmtModel implements Serializable {
 
     public void setBetrag(BigDecimal betrag) {
         this.betrag = betrag;
+    }
+
+    public Collection<Transaktion> getVerlauf() {
+        return kontoverwaltung.getVerlauf(tempKontoinhaber);
     }
 }

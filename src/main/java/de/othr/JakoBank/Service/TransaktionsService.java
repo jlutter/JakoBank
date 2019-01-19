@@ -14,6 +14,7 @@ import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+
 @WebService
 @SessionScoped
 public class TransaktionsService implements TransaktionsIF, Serializable {
@@ -32,8 +33,8 @@ public class TransaktionsService implements TransaktionsIF, Serializable {
         var ziel = entityManager.find(Konto.class, iZiel.getKonto().getKontoNr());
 
         if(auftraggeber.getKontostand().compareTo(transaktion.getBetrag()) >= 0) {
-            auftraggeber.setKontostand(auftraggeber.getKontostand().subtract(transaktion.getBetrag()));
-            ziel.setKontostand(ziel.getKontostand().add(transaktion.getBetrag()));
+            auftraggeber.setKontostand(auftraggeber.getKontostand().add(transaktion.getBetrag()));
+            ziel.setKontostand(ziel.getKontostand().subtract(transaktion.getBetrag()));
         }
         //toDo richtige alternative implementieren
         else System.out.println("Auftrag kann nicht ausgeführt weden: \nZu wenig Geld am Konto!");
@@ -51,12 +52,16 @@ public class TransaktionsService implements TransaktionsIF, Serializable {
 
         auftraggeber.setKontostand(auftraggeber.getKontostand().subtract(transaktion.getBetrag()));
         ziel.setKontostand(ziel.getKontostand().add(transaktion.getBetrag()));
-
     }
 
     @Override
     @Transactional
     public Transaktion neueTransaktion(long auftraggeber, long ziel, BigDecimal betrag, String verwendungszweck) {
+
+        if(betrag == null || entityManager.find(Kontoinhaber.class, auftraggeber) == null)
+            return null;
+
+        //System.out.println("transaktion wird erstellt");
 
         var transaktion = new Transaktion(auftraggeber, ziel, betrag, verwendungszweck);
 

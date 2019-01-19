@@ -51,6 +51,10 @@
         <from-outcome>charge</from-outcome>
         <to-view-id>/kunde/chargekonto.xhtml</to-view-id>
     </navigation-case>
+    <navigation-case>
+        <from-outcome>verlauf</from-outcome>
+        <to-view-id>/kunde/verlauf.xhtml</to-view-id>
+    </navigation-case>
 </navigation-rule>
 
 </faces-config>

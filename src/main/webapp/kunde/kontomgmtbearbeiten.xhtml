@@ -8,7 +8,7 @@
 <h:body>
     <ui:composition template="../WEB-INF/templates/basicTemplate.xhtml">
         <ui:define name="content">
-            <h1>Kontoverwaltung</h1>
+            <h1 align="center">Kontoverwaltung</h1>
             <f:view>
                 <h2>Detailansicht</h2>
                 <h:form>
@@ -42,7 +42,6 @@
 
                         <h:commandButton value="Konto bearbeiten" action="#{kontoMgmtModel.aendern()}"/>
                         <h:commandButton value="Abbrechen" action="kunde"/><br/>
-
                     </h:panelGrid>
                 </h:form>
             </f:view>

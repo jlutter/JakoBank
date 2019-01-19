@@ -8,7 +8,7 @@
 <h:body>
     <ui:composition template="../WEB-INF/templates/basicTemplate.xhtml">
         <ui:define name="content">
-            <h1>Kontoverwaltung</h1>
+            <h1 align="center">Kontoverwaltung</h1>
             <f:view>
                 <h2>Detailansicht</h2>
                 <h:form>
@@ -48,7 +48,6 @@
 
                         <h:commandButton value="Konto aufladen" action="#{kontoMgmtModel.chargeIO}"/>
                         <h:commandButton value="Verlauf" action="#{kontoMgmtModel.verlauf}"/><br/>
-
                     </h:panelGrid>
                 </h:form>
             </f:view>

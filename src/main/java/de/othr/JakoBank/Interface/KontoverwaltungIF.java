@@ -1,11 +1,9 @@
 package de.othr.JakoBank.Interface;
 
-import de.othr.JakoBank.Entity.Adresse;
-import de.othr.JakoBank.Entity.Konto;
-import de.othr.JakoBank.Entity.Kontoinhaber;
-import de.othr.JakoBank.Entity.Name;
+import de.othr.JakoBank.Entity.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public interface KontoverwaltungIF {
     public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum);
@@ -23,4 +21,6 @@ public interface KontoverwaltungIF {
     public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Name name, Adresse adresse);
 
     public void chargeKonto(Konto konto, BigDecimal betrag);
+
+    public List<Transaktion> getVerlauf(Kontoinhaber kontoinhaber);
 }
