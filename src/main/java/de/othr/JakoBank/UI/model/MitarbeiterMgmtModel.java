@@ -56,7 +56,6 @@ public class MitarbeiterMgmtModel implements Serializable {
         return "mitarbeiter";
     }
 
-    //toDo
     public String aenderVorbereiten(Kontoinhaber kontoinhaber) {
         this.aendern = true;
         this.tempKontoinhaber = kontoinhaber;

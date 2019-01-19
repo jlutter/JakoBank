@@ -61,8 +61,6 @@ public class TransaktionsService implements TransaktionsIF, Serializable {
         if(betrag == null || entityManager.find(Kontoinhaber.class, auftraggeber) == null)
             return null;
 
-        //System.out.println("transaktion wird erstellt");
-
         var transaktion = new Transaktion(auftraggeber, ziel, betrag, verwendungszweck);
 
         entityManager.persist(transaktion);

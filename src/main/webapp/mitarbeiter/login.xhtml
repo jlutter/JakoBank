@@ -16,10 +16,9 @@
                         <h:inputText value="#{mitarbeiterMgmtModel.loginName}"/>
 
                         <h:outputText value="Passwort:"/>
-                        <h:inputText value="#{mitarbeiterMgmtModel.passwort}"/>
+                        <h:inputSecret value="#{mitarbeiterMgmtModel.passwort}"/>
 
                         <h:commandButton value="Log In" action="#{mitarbeiterMgmtModel.login()}"/><br/>
-
                     </h:panelGrid>
                 </h:form>
             </f:view>

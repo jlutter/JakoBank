@@ -41,7 +41,6 @@ public class KontoMgmtModel implements Serializable {
             return "kunde_login";
     }
 
-    //toDo
     public String aendernVorbereiten() {
         this.aendern = true;
 

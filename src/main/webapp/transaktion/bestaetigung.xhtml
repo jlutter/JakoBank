@@ -8,9 +8,13 @@
 <f:view>
     <ui:composition template="../WEB-INF/templates/basicTemplate.xhtml">
         <ui:define name="content">
-            <h:outputLabel value="Auftrag bestätigt!"/><br/><br/><br/>
+            <h:outputLabel value="Transaktion bestätigt!"/><br/><br/><br/>
 
-            <h:commandButton value="Zurück" action="#{kontoMgmtModel.ret}"/>
+            <f:view>
+                <h:form>
+                    <h:commandButton value="Zurück" action="#{kontoMgmtModel.ret}"/><br/>
+                </h:form>
+            </f:view>
         </ui:define>
     </ui:composition>
 </f:view>
