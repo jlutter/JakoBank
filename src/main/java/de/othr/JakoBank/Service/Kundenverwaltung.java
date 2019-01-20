@@ -1,5 +1,6 @@
 package de.othr.JakoBank.Service;
 
+import com.Partner.*;
 import de.othr.JakoBank.Entity.Adresse;
 import de.othr.JakoBank.Entity.Konto;
 import de.othr.JakoBank.Entity.Kontoinhaber;
@@ -25,6 +26,8 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     @Transactional
     public Kontoinhaber newKontoinhaber(Kontoinhaber kontoinhaber) {
         createKonto(kontoinhaber.getKonto());
+
+        //ordnerBestellen();
 
         entityManager.persist(kontoinhaber);
 
@@ -158,7 +161,21 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     @Override
     @Transactional
     public void ordnerBestellen() {
+        var service = new BestellServiceService();
+        var stub = service.getBestellServicePort();
 
+        var kunde = new Kunde();
+        kunde.setNutzerName("jakobank");
+
+        var bestellung = new Bestellung();
+        var artikel = new Artikel();
+        var artikelpos = new ArtikelPos();
+
+        artikelpos.setArtikelPosNr(1);
+        artikel.setArtikelPos(artikelpos);
+        bestellung.getArtikel().add(artikel);
+
+        stub.bestellungAufgeben(kunde, bestellung);
     }
 
     @Override
