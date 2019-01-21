@@ -12,16 +12,13 @@ import java.math.BigDecimal;
 @Entity
 public class Konto extends RandomIdEntity {
     private BigDecimal kontostand;
-    private Kontoverlauf kontoverlauf;
 
     public Konto() {
         this.kontostand = BigDecimal.ZERO;
-        this.kontoverlauf = new Kontoverlauf();
     }
 
     public Konto(BigDecimal startbetrag) {
         this.kontostand = startbetrag;
-        this.kontoverlauf = new Kontoverlauf();
     }
 
     public String getKontoNr() {

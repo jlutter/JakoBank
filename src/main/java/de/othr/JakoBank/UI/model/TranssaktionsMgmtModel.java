@@ -38,8 +38,6 @@ public class TranssaktionsMgmtModel implements Serializable {
 
     public String transaktionStarten() {
 
-        tempTransaktion = transaktionsService.neueTransaktion(tempTransaktion.getAuftraggeber(), tempTransaktion.getZiel(), tempTransaktion.getBetrag(), tempTransaktion.getVerwendungszweck());
-
         if(ueberweisung)
             transaktionsService.ueberweisungtaetigen(tempTransaktion);
 

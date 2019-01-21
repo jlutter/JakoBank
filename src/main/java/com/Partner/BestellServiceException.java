@@ -3,21 +3,20 @@ package com.Partner;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for bestellungAufgebenResponse complex type.
+ * <p>Java class for BestellServiceException complex type.
  * 
  * <p>The following schema fragment specifies the expected         content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="bestellungAufgebenResponse"&gt;
+ * &lt;complexType name="BestellServiceException"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="return" type="{http://service.sw.othr.de/}kunde" minOccurs="0"/&gt;
+ *         &lt;element name="message" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -27,36 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "bestellungAufgebenResponse", propOrder = {
-    "_return"
+@XmlType(name = "BestellServiceException", propOrder = {
+    "message"
 })
-public class BestellungAufgebenResponse {
+public class BestellServiceException {
 
-    @XmlElement(name = "return")
-    protected Kunde _return;
+    protected String message;
 
     /**
-     * Gets the value of the return property.
+     * Gets the value of the message property.
      * 
      * @return
      *     possible object is
-     *     {@link Kunde }
+     *     {@link String }
      *     
      */
-    public Kunde getReturn() {
-        return _return;
+    public String getMessage() {
+        return message;
     }
 
     /**
-     * Sets the value of the return property.
+     * Sets the value of the message property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Kunde }
+     *     {@link String }
      *     
      */
-    public void setReturn(Kunde value) {
-        this._return = value;
+    public void setMessage(String value) {
+        this.message = value;
     }
 
 }

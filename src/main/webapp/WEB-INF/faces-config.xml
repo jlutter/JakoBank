@@ -12,10 +12,6 @@
         <to-view-id>/index.xhtml</to-view-id>
     </navigation-case>
     <navigation-case>
-        <from-outcome>mitarbeiter_login</from-outcome>
-        <to-view-id>/mitarbeiter/login.xhtml</to-view-id>
-    </navigation-case>
-    <navigation-case>
         <from-outcome>mitarbeiter</from-outcome>
         <to-view-id>/mitarbeiter/mitarbeitermgmt.xhtml</to-view-id>
     </navigation-case>

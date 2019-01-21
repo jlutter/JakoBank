@@ -32,7 +32,7 @@ public interface KundenverwaltungIF {
 
     public Kontoinhaber changeKontoinhaber(Kontoinhaber kontoinhaber, long telnum, Name name, Adresse adresse);
 
-    public void deleteKonto(Kontoinhaber kontoinhaber, Konto konto);
+    public void deleteKonto(Konto konto);
 
     public void deleteKontoinhaber(Kontoinhaber kontoinhaber);
 

@@ -19,6 +19,7 @@
                         <h:inputSecret value="#{kontoMgmtModel.passwort}"/>
 
                         <h:commandButton value="Log In" action="#{kontoMgmtModel.login}"/><br/>
+                        <h:outputText value="Falsche(s) Kunden-ID/Passwort!" rendered="#{kontoMgmtModel.wrong}" style="color: crimson"/>
                     </h:panelGrid>
                 </h:form>
             </f:view>

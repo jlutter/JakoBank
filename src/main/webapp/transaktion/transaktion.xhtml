@@ -24,6 +24,9 @@
                         <h:outputText value="Verwendungszweck:"/>
                         <h:inputText value="#{transsaktionsMgmtModel.tempTransaktion.verwendungszweck}"/>
 
+                        <h:selectBooleanCheckbox value="#{transsaktionsMgmtModel.ueberweisung}"/>
+                        <h:outputText value="Überweisung (unchecked = Lastschrift)"/>
+
                         <h:commandButton value="Transaktion starten" action="#{transsaktionsMgmtModel.check}"/>
 
                     </h:panelGrid>

@@ -32,6 +32,8 @@ public class TransaktionsService implements TransaktionsIF, Serializable {
         var auftraggeber = entityManager.find(Konto.class, iAuftraggeber.getKonto().getKontoNr());
         var ziel = entityManager.find(Konto.class, iZiel.getKonto().getKontoNr());
 
+        transaktion = neueTransaktion(transaktion.getAuftraggeber(),transaktion.getZiel(), transaktion.getBetrag(), transaktion.getVerwendungszweck());
+
         if(auftraggeber.getKontostand().compareTo(transaktion.getBetrag()) >= 0) {
             auftraggeber.setKontostand(auftraggeber.getKontostand().add(transaktion.getBetrag()));
             ziel.setKontostand(ziel.getKontostand().subtract(transaktion.getBetrag()));
@@ -49,6 +51,8 @@ public class TransaktionsService implements TransaktionsIF, Serializable {
 
         var auftraggeber = entityManager.find(Konto.class, iAuftraggeber.getKonto().getKontoNr());
         var ziel = entityManager.find(Konto.class, iZiel.getKonto().getKontoNr());
+
+        transaktion = neueTransaktion(transaktion.getAuftraggeber(),transaktion.getZiel(), transaktion.getBetrag(), transaktion.getVerwendungszweck());
 
         auftraggeber.setKontostand(auftraggeber.getKontostand().subtract(transaktion.getBetrag()));
         ziel.setKontostand(ziel.getKontostand().add(transaktion.getBetrag()));

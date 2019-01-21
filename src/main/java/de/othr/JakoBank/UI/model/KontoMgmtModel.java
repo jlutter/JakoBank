@@ -29,16 +29,31 @@ public class KontoMgmtModel implements Serializable {
     private boolean aendern = false;
     private long loginName;
     private String passwort;
+    private boolean wrong = false;
 
     public String login() {
 
         tempKontoinhaber = kundenverwaltung.getKundebyId(loginName);
 
-        if (tempKontoinhaber.getId() == loginName && tempKontoinhaber.getPasswort().equals(passwort))
-            return "kunde";
+        try {
 
-        else
+
+            if (tempKontoinhaber.getId() == loginName && tempKontoinhaber.getPasswort().equals(passwort)) {
+                wrong = false;
+
+                return "kunde";
+            } else {
+                wrong = true;
+
+                return "kunde_login";
+            }
+        }
+
+        catch (NullPointerException e){
+            wrong = true;
+
             return "kunde_login";
+        }
     }
 
     public String aendernVorbereiten() {
@@ -84,14 +99,6 @@ public class KontoMgmtModel implements Serializable {
 
     public void setTempKontoinhaber(Kontoinhaber tempKontoinhaber) {
         this.tempKontoinhaber = tempKontoinhaber;
-    }
-
-    public boolean isInAenderung() {
-        return aendern;
-    }
-
-    public void setInAenderung(boolean inAenderung) {
-        this.aendern = inAenderung;
     }
 
     public void setTelnum(long telnum) {
@@ -144,5 +151,9 @@ public class KontoMgmtModel implements Serializable {
 
     public Collection<Transaktion> getVerlauf() {
         return kontoverwaltung.getVerlauf(tempKontoinhaber);
+    }
+
+    public boolean isWrong() {
+        return wrong;
     }
 }

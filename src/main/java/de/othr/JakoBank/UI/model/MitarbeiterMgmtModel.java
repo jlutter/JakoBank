@@ -25,23 +25,8 @@ public class MitarbeiterMgmtModel implements Serializable {
     private Konto konto = new Konto();
     private Kontoinhaber tempKontoinhaber;
     private boolean aendern = false;
-    private long loginName;
     private String passwort;
 
-    public String login() {
-
-        tempKontoinhaber = kundenverwaltung.getKundebyId(loginName);
-
-        if(tempKontoinhaber.getId() == loginName && tempKontoinhaber.getPasswort().equals(passwort))
-            return "mitarbeiter";
-
-        else
-            return "mitarbeiter_login";
-    }
-
-    public String check() {
-        return "details_mitarbeiter";
-    }
 
     public String neuerKunde() {
         this.tempKontoinhaber = new Kontoinhaber(this.telnum, this.name, this.adresse, this.konto, this.passwort);
@@ -52,6 +37,14 @@ public class MitarbeiterMgmtModel implements Serializable {
         this.adresse = new Adresse();
         this.konto = new Konto();
         this.telnum = 0;
+
+        try {
+            kundenverwaltung.ordnerBestellen();
+        }
+
+        catch (Exception e) {
+            return "mitarbeiter";
+        }
 
         return "mitarbeiter";
     }
@@ -123,14 +116,6 @@ public class MitarbeiterMgmtModel implements Serializable {
 
     public void setPasswort(String passwort) {
         this.passwort = passwort;
-    }
-
-    public long getLoginName() {
-        return loginName;
-    }
-
-    public void setLoginName(long loginName) {
-        this.loginName = loginName;
     }
 
     public Collection<Kontoinhaber> getKunden() {

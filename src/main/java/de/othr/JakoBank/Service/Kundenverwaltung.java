@@ -27,8 +27,6 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     public Kontoinhaber newKontoinhaber(Kontoinhaber kontoinhaber) {
         createKonto(kontoinhaber.getKonto());
 
-        //ordnerBestellen();
-
         entityManager.persist(kontoinhaber);
 
         return kontoinhaber;
@@ -144,7 +142,7 @@ public class Kundenverwaltung implements KundenverwaltungIF {
 
     @Override
     @Transactional
-    public void deleteKonto(Kontoinhaber kontoinhaber, Konto konto) {
+    public void deleteKonto(Konto konto) {
         konto = entityManager.find(Konto.class, konto.getKontoNr());
 
         entityManager.remove(konto);
@@ -155,12 +153,15 @@ public class Kundenverwaltung implements KundenverwaltungIF {
     public void deleteKontoinhaber(Kontoinhaber kontoinhaber) {
         kontoinhaber = entityManager.find(Kontoinhaber.class, kontoinhaber.getId());
 
+        deleteKonto(kontoinhaber.getKonto());
+
         entityManager.remove(kontoinhaber);
     }
 
     @Override
     @Transactional
     public void ordnerBestellen() {
+        try {
         var service = new BestellServiceService();
         var stub = service.getBestellServicePort();
 
@@ -169,13 +170,18 @@ public class Kundenverwaltung implements KundenverwaltungIF {
 
         var bestellung = new Bestellung();
         var artikel = new Artikel();
-        var artikelpos = new ArtikelPos();
+        var artikelpos = new ArtikelPosition();
 
         artikelpos.setArtikelPosNr(1);
-        artikel.setArtikelPos(artikelpos);
+        artikel.setArtikelPosition(artikelpos);
         bestellung.getArtikel().add(artikel);
 
         stub.bestellungAufgeben(kunde, bestellung);
+        }
+
+        catch (Exception e) {
+            return;
+        }
     }
 
     @Override
